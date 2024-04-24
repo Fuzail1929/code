@@ -1,0 +1,54 @@
+# defining common class
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display_info(self):
+        print(self.name ,self.marks)
+
+
+class Teacher(Person):
+    def __init__(self,name,age,subject):
+        super().__init__(name, age)
+        self.subject = subject
+
+    def grade_student(self, student, marks,a):
+        a.update(student.name, marks)
+
+
+class Student(Person):
+    def __init__(self, name, age,a):
+        super().__init__(name, age)
+        self._a = a
+
+    def get_marks(self):
+        return self._a.getmarks(self.name)
+
+# all the information of every student stored here
+class Database:
+    def __init__(self):
+        # dictionary with keys as students and value as their corresponding marks.
+        self.s = {}
+
+    def add(self, student):  
+        self.s[student.name] = 0
+        # Initialize marks to 0
+
+    def update(self, student_name, new_marks):
+        if student_name in s:
+            # alloting value
+            s[student_name] = new_marks
+            print(student_name, self.new_marks)
+        else:
+             print( student_name + "not found in the database.")
+
+    def getmarks(self, student_name):
+        if student_name in s:
+            return s[student_name]
+        else:
+            print( student_name + "not found in the database.")
+            return None
+
+a = Database()            
+
